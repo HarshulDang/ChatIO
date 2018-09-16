@@ -25,7 +25,7 @@ io.sockets.on('connection',function(socket) {
 	});
 
 	//updateUsernames
-	function updateUsernames(argument) {
+	function updateUsernames() {
 		io.sockets.emit('usernames',usernames);
 	}
 
