@@ -4,8 +4,9 @@ var express = require('express'),
 	io = require('socket.io').listen(server);
 	usernames = [];	
 
-server.listen(process.env.PORT || 3000);
-console.log('Server Running...');
+server.listen(process.env.PORT || 3000, function(){
+	console.log('Server Running...',process.env.PORT || 3000);	
+});
 
 app.get('/',function (req, res) {
 	res.sendFile(__dirname + '/index.html');
@@ -14,6 +15,7 @@ app.get('/',function (req, res) {
 io.sockets.on('connection',function(socket) {
 	console.log('Socket Connected...');
 	socket.on('new user',function(data,callback) {
+		console.log("newuser");
 		if (usernames.indexOf(data) != -1) {
 			callback(false);
 		}else{

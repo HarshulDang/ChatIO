@@ -94,8 +94,10 @@
 
 			$usernameForm.submit(function(e) {
 				 e.preventDefault();
+				 console.log("kqejkqe");
 				 socket.emit('new user',$username.val(),function(data) {
 				 	if (data) {
+				 		console.log("nnnnnnn");
 				 		$('#namesWrapper').hide();
 				 		$('#mainWrapper').show();
 				 	}else{
